@@ -1,0 +1,22 @@
+# Testing libraries (nbval, flake8, and flake8-nb)
+# are not considered dependencies. They are pip-installed
+# separately on CI.
+
+name: npp2025
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - python=3.13  # Should test up to 3.14
+  - jupyter
+  - numpy
+  - matplotlib
+  - scipy
+  - sympy
+  - pendulum
+  - jupyter_contrib_nbextensions
+  - nbclassic
+  - pip:
+     - -r requirements.txt
+  # There is a conflict between pybryt and ipykernel>=6.0.0 (released 2 July 2021).
+  # Because of that, we fix ipykernel version until version 6.* matures.
